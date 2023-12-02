@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         try {
-            File in = new File("/home/nyx/IdeaProjects/Aoc2023D2/src/input");
+            File in = new File("src/input");
             Scanner reader = new Scanner(in);
             int r = 0;
             while (reader.hasNextLine()) {
