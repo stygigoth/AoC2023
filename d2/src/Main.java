@@ -45,7 +45,6 @@ public class Main {
                 boolean bl = false;
                 for (char c : drw) {
                     boolean bl2 = false;
-                    System.out.println("Char: " + c);
                     if (Character.isDigit(c) && !bl) {
                         n *= 10;
                         n += Integer.parseInt(String.valueOf(c));
