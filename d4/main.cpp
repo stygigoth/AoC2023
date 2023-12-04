@@ -91,7 +91,7 @@ void part_two(stringstream &input_buffer) {
     }
 
     for (int i = card_num + 1; i <= card_num + matches; i++) {
-      printf("%d: %d: %llu, ", card_num, i, done[card_num]);
+      // printf("%d: %d: %llu, ", card_num, i, done[card_num]);
       done[i] += done[card_num];
     }
   }
