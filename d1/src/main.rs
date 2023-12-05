@@ -1,10 +1,25 @@
 use std::fs;
 
 fn main() {
-    let contents = fs::read_to_string("input1").unwrap();
+    let contents = fs::read_to_string("input").unwrap();
     let lines = contents.lines();
-    let mut sum: u64 = 0;
-    let mut closure = |l: String| {
+    let mut sum1: u64 = 0;
+    let mut sum2: u64 = 0;
+    let mut part_one = |l: String| {
+        let cs = l.chars();
+        let mut first = 0;
+        let mut last = 0;
+        for c in cs {
+            if c.is_digit(10) {
+                if first == 0 {
+                    first = c.to_digit(10).unwrap();
+                }
+                last = c.to_digit(10).unwrap();
+            }
+        }
+        sum1 += first as u64 * 10 + last as u64;
+    };
+    let mut part_two = |l: String| {
         let mut cs: Vec<char> = l.chars().collect();
         let mut first = 0;
         let mut i = 0;
@@ -207,10 +222,12 @@ fn main() {
                 _ => i += 1,
             }
         }
-        sum += first as u64;
+        sum2 += first as u64;
     };
     lines.for_each(move |l| {
-        closure(String::from(l));
+        part_one(String::from(l));
+        part_two(String::from(l));
     });
-    println!("{}", sum);
+    println!("Part 1: {}", sum1);
+    println!("Part 2: {}", sum2);
 }
