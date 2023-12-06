@@ -21,9 +21,13 @@ sub part_one {
   my $a = 1;
   for(keys %races) {
       my $sum = 0;
+      my $b = 0;
       for my $i (0..$_) {
         if (($_ - $i) * $i > $races{$_}) {
           $sum += 1;
+          b = 1;
+        } elsif ($b == 1) {
+          last;
         }
       }
       if ($sum > 0) {
@@ -41,9 +45,12 @@ sub part_two {
   $distance =~ s/\s+//g;
   
   my $sum = 0;
+  my $b = 0;
   for my $i (0..$time) {
     if (($time - $i) * $i > $distance) {
       $sum += 1;
+    } elsif ($b == 1) {
+      last;
     }
   }
 
