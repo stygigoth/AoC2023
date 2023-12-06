@@ -25,7 +25,7 @@ sub part_one {
       for my $i (0..$_) {
         if (($_ - $i) * $i > $races{$_}) {
           $sum += 1;
-          b = 1;
+          $b = 1;
         } elsif ($b == 1) {
           last;
         }
@@ -49,6 +49,7 @@ sub part_two {
   for my $i (0..$time) {
     if (($time - $i) * $i > $distance) {
       $sum += 1;
+      $b = 1;
     } elsif ($b == 1) {
       last;
     }
