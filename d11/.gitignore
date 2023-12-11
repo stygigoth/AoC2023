@@ -1,4 +1,4 @@
-*.beam
-*.ez
-build
-erl_crash.dump
+### IntelliJ IDEA ###
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
