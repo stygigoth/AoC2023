@@ -16,7 +16,7 @@ void solve(bool part_one) {
             s = s.repeat(5).join('?');
         }
         s ~= '.';
-        auto a = t[1].strip.split (",").map!(to!(int)).array;
+        auto a = t[1].strip.split(",").map!(to!(int)).array;
         if (!part_one) {
             a = a.repeat(5).join;
         }
