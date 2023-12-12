@@ -3,16 +3,29 @@ global _start
 section .text
 
 _start:
-  mov rax, 1        ; write(
-  mov rdi, 1        ;   STDOUT_FILENO,
-  mov rsi, msg      ;   "Hello, world!\n",
-  mov rdx, msglen   ;   sizeof("Hello, world!\n")
-  syscall           ; );
+  pop rdi
+  pop rdi
+  pop rdi
 
-  mov rax, 60       ; exit(
-  mov rdi, 0        ;   EXIT_SUCCESS
-  syscall           ; );
+  mov rax, 2
+  mov rsi, 0
+  syscall
 
-section .rodata
-  msg: db "Hello, world!", 10
-  msglen: equ $ - msg
+  mov rdi, rax       
+  mov rsi, buf
+  mov rdx, 1024*1024
+  mov rax, 0
+  syscall
+
+  mov rdi, 1
+  mov rsi, buf
+  mov rdx, rax
+  mov rax, 1
+  syscall            
+
+  mov rax, 60
+  mov rdi, 0
+  syscall
+
+section .bss
+  buf: resb 1024*1024
